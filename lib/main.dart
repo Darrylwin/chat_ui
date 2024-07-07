@@ -57,6 +57,54 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
+          SizedBox(
+            height: 50,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Messages",
+                    style: TextStyle(color: Colors.white, fontSize: 26),
+                  ),
+                ),
+                const SizedBox(
+                  width: 35,
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Online",
+                    style: TextStyle(color: Colors.grey, fontSize: 26),
+                  ),
+                ),
+                const SizedBox(
+                  width: 35,
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Groups",
+                    style: TextStyle(color: Colors.grey, fontSize: 26),
+                  ),
+                ),
+                const SizedBox(
+                  width: 35,
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "More",
+                    style: TextStyle(color: Colors.grey, fontSize: 26),
+                  ),
+                ),
+                const SizedBox(
+                  width: 35,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
