@@ -160,16 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: [
                         Column(
                           children: [
-                            CircleAvatar(
-                              radius: 32,
-                              backgroundColor: Colors.white,
-                              child: CircleAvatar(
-                                radius: 29,
-                                backgroundImage:
-                                    Image.asset("assets/images/img1.jpeg")
-                                        .image,
-                              ),
-                            ),
+                            UserAvatar(filename: 'img1.jpeg'),
                             SizedBox(height: 3),
                             Text(
                               "Alla",
@@ -188,6 +179,27 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class UserAvatar extends StatelessWidget {
+  final String filename;
+
+  const UserAvatar({
+    super.key,
+    required this.filename,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return CircleAvatar(
+      radius: 32,
+      backgroundColor: Colors.white,
+      child: CircleAvatar(
+        radius: 29,
+        backgroundImage: Image.asset("assets/images/$filename").image,
       ),
     );
   }
