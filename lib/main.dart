@@ -117,16 +117,16 @@ class _MyHomePageState extends State<MyHomePage> {
             left: 0,
             right: 0,
             child: Container(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 top: 15,
                 left: 25,
                 right: 25,
               ),
               height: 220,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0xFF27c1A9),
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
+                    topLeft: Radius.circular(40),
                     topRight: Radius.circular(40)),
               ),
               child: Column(
@@ -134,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         "Favorites contacts",
                         style: TextStyle(
                           color: Colors.white,
@@ -158,24 +158,109 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: [
-                        Column(
-                          children: [
-                            UserAvatar(filename: 'img1.jpeg'),
-                            SizedBox(height: 3),
-                            Text(
-                              "Alla",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
-                        ),
+                        buildContactAvatar("Alla", "img1.jpeg"),
+                        buildContactAvatar("Jully", "img2.jpeg"),
+                        buildContactAvatar("Mike", "img3.jpeg"),
+                        buildContactAvatar("Kler", "img4.jpeg"),
+                        buildContactAvatar("Moane", "img5.jpeg"),
+                        buildContactAvatar("Julie", "img6.jpeg"),
+                        buildContactAvatar("Allem", "img7.jpeg"),
+                        buildContactAvatar("Judith", "img8.jpeg"),
                       ],
                     ),
                   ),
                 ],
               ),
+            ),
+          ),
+          Positioned(
+            top: 365,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 15),
+              height: 200,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40)),
+                color: Color(0xFFEFFFFC),
+              ),
+              child: ListView(
+                padding: EdgeInsets.only(left: 25),
+                children: const [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          UserAvatar(filename: 'img1.jpeg'),
+                          SizedBox(width: 15),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Lorra",
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                "How you are",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 5, right: 25),
+                        child: Column(
+                          children: [
+                            Text(
+                              '16:53',
+                              style: TextStyle(fontSize: 10),
+                            ),
+                            SizedBox(height: 15),
+                            CircleAvatar(
+                              radius: 7,
+                              backgroundColor: Color(0xFF27c1A9),
+                              child: Text(
+                                "2",
+                                style: TextStyle(
+                                    fontSize: 10, color: Colors.white),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Padding buildContactAvatar(String name, String filename) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        right: 020.0,
+      ),
+      child: Column(
+        children: [
+          UserAvatar(filename: filename),
+          SizedBox(height: 3),
+          Text(
+            name,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 16,
             ),
           ),
         ],
