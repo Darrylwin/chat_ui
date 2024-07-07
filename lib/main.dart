@@ -189,61 +189,75 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               child: ListView(
                 padding: EdgeInsets.only(left: 25),
-                children: const [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          UserAvatar(filename: 'img1.jpeg'),
-                          SizedBox(width: 15),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Lorra",
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              SizedBox(height: 5),
-                              Text(
-                                "How you are",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 5, right: 25),
-                        child: Column(
-                          children: [
-                            Text(
-                              '16:53',
-                              style: TextStyle(fontSize: 10),
-                            ),
-                            SizedBox(height: 15),
-                            CircleAvatar(
-                              radius: 7,
-                              backgroundColor: Color(0xFF27c1A9),
-                              child: Text(
-                                "2",
-                                style: TextStyle(
-                                    fontSize: 10, color: Colors.white),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                children: [
+                  buildConversationRow(name:'Lora', message: "Hello! Ho are you",filename: 'img1.jpeg',msgCount: 3,timeReceived: "15:27"),
                 ],
               ),
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Column buildConversationRow({required String name,
+    required String message, required
+    String filename, required
+    int msgCount, required
+    String timeReceived}) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                UserAvatar(filename: filename),
+                SizedBox(width: 15),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      name,
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      message,
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 5, right: 25),
+              child: Column(
+                children: [
+                  Text(
+                    timeReceived,
+                    style: TextStyle(fontSize: 10),
+                  ),
+                  SizedBox(height: 15),
+                  CircleAvatar(
+                    radius: 7,
+                    backgroundColor: Color(0xFF27c1A9),
+                    child: Text(
+                      msgCount.toString(),
+                      style: TextStyle(fontSize: 10, color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        Divider(
+          indent: 70,
+        ),
+      ],
     );
   }
 
