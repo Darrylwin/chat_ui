@@ -31,6 +31,34 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF171717),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 70,
+              left: 5,
+              right: 5,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.menu,
+                    color: Colors.white,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.search),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
