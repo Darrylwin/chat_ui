@@ -190,7 +190,49 @@ class _MyHomePageState extends State<MyHomePage> {
               child: ListView(
                 padding: EdgeInsets.only(left: 25),
                 children: [
-                  buildConversationRow(name:'Lora', message: "Hello! Ho are you",filename: 'img1.jpeg',msgCount: 3,timeReceived: "15:27"),
+                  buildConversationRow(name:'~Spicy', message: "Hello! Ho are you",filename: 'img1.jpeg',msgCount: 2,timeReceived: "17:18"),
+                  buildConversationRow(
+                      name: "Marina",
+                      message: "Lecteur Omniscient 🤲",
+                      filename: 'img2.jpeg',
+                      msgCount: 2,
+                      timeReceived: "18:07"),
+                  buildConversationRow(
+                      name: 'Isaac',
+                      message: "Djo 😌",
+                      filename: 'img3.jpeg',
+                      msgCount: 3,
+                      timeReceived: "15:27"),
+                  buildConversationRow(
+                      name: 'Flora',
+                      message: "🤦‍♂️",
+                      filename: 'img4.jpeg',
+                      msgCount: 3,
+                      timeReceived: "15:27"),
+                  buildConversationRow(
+                      name: 'BDG',
+                      message: "Darryl là même tu fatigues",
+                      filename: 'img5.jpeg',
+                      msgCount: 3,
+                      timeReceived: "15:27"),
+                  buildConversationRow(
+                      name: 'L1 GROUPE D IAI-TOGO',
+                      message: "Watashiwa Star",
+                      filename: 'img6.jpeg',
+                      msgCount: 101,
+                      timeReceived: "15:27"),
+                  buildConversationRow(
+                      name: 'Shingeki No Hotaku',
+                      message: "@Melsun @Charite @Fenec_Renard",
+                      filename: 'img7.jpeg',
+                      msgCount: 407,
+                      timeReceived: "23:14"),
+                  buildConversationRow(
+                      name: 'You',
+                      message: "https://Dartpad.dv",
+                      filename: 'img8.jpeg',
+                      msgCount: 0,
+                      timeReceived: "12:34"),
                 ],
               ),
             ),
@@ -241,8 +283,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: TextStyle(fontSize: 10),
                   ),
                   SizedBox(height: 15),
+                  if (msgCount>0)
                   CircleAvatar(
-                    radius: 7,
+                    radius: 10,
                     backgroundColor: Color(0xFF27c1A9),
                     child: Text(
                       msgCount.toString(),
