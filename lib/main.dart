@@ -195,7 +195,12 @@ class _MyHomePageState extends State<MyHomePage> {
               child: ListView(
                 padding: EdgeInsets.only(left: 25),
                 children: [
-                  buildConversationRow(name:'~Spicy', message: "Hello! Ho are you",filename: 'img1.jpeg',msgCount: 2,timeReceived: "17:18"),
+                  buildConversationRow(
+                      name: '~Spicy',
+                      message: "Hello! How are you",
+                      filename: 'img1.jpeg',
+                      msgCount: 2,
+                      timeReceived: "17:18"),
                   buildConversationRow(
                       name: "Marina",
                       message: "Lecteur Omniscient 🤲",
@@ -255,9 +260,66 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         onPressed: () {},
       ),
-      drawer: Drawer(
+      drawer: const Drawer(
         width: 275,
-        backgroundColor: Colors.black26,
+        backgroundColor: Colors.black38,
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(20, 50, 20, 20),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Icon(
+                    Icons.arrow_back_ios_new,
+                    color: Colors.white,
+                    size: 20,
+                  ),
+                  SizedBox(
+                    width: 56,
+                  ),
+                  Text(
+                    'Settings',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 030),
+              Row(
+                children: [
+                  UserAvatar(filename: 'img3.jpeg'),
+                  SizedBox(width: 12),
+                  Text(
+                    "Darryl-win",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 35),
+              Row(
+                children: [
+                  Icon(
+                    Icons.account_circle_outlined,
+                    color: Colors.white,
+                    size: 20,
+                  ),
+                  SizedBox(
+                    width: 56,
+                  ),
+                  Text(
+                    'Account',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
