@@ -28,9 +28,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final GlobalKey<ScaffoldState> _globalKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _globalKey,
       backgroundColor: const Color(0xFF171717),
       body: Stack(
         children: [
@@ -46,7 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _globalKey.currentState!.openDrawer();
+                      },
                       icon: const Icon(
                         Icons.menu,
                         color: Colors.white,
@@ -238,6 +243,21 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ],
+      ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color(0xFF27c1A9),
+        // mouseCursor: MouseCursor.defer,
+        child: const Icon(
+          Icons.mode_edit_rounded,
+          size: 25,
+          color: Color(0xFFEFFFFC),
+        ),
+        onPressed: () {},
+      ),
+      drawer: Drawer(
+        width: 275,
+        backgroundColor: Colors.black26,
       ),
     );
   }
