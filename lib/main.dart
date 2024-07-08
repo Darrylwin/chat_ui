@@ -299,6 +299,11 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               const SizedBox(height: 35),
               DrawerItem(title: "Account", icon: Icons.account_circle_sharp),
+              DrawerItem(title: "Chats", icon: Icons.chat_outlined),
+              DrawerItem(title: "Notifications", icon: Icons.notifications),
+              DrawerItem(title: "Data and storage", icon: Icons.storage),
+              DrawerItem(title: "Help", icon: Icons.help),
+
             ],
           ),
         ),
@@ -402,24 +407,27 @@ class DrawerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(
-          icon,
-          color: Colors.white,
-          size: 20,
-        ),
-        SizedBox(
-          width: 56,
-        ),
-        Text(
-          title,
-          style: TextStyle(
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 25),
+      child: Row(
+        children: [
+          Icon(
+            icon,
             color: Colors.white,
-            fontSize: 16,
+            size: 20,
           ),
-        ),
-      ],
+          SizedBox(
+            width: 56,
+          ),
+          Text(
+            title,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
