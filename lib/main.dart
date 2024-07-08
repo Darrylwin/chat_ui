@@ -9,8 +9,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          drawerTheme: DrawerThemeData(scrimColor: Colors.transparent)),
       home: MyHomePage(
         title: 'New Whatsapp UI',
       ),
@@ -140,7 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
-                        "Favorites contacts",
+                        "Status",
                         style: TextStyle(
                           color: Colors.white,
                         ),
@@ -184,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
             right: 0,
             bottom: 0,
             child: Container(
-              padding: EdgeInsets.symmetric(vertical: 15),
+              padding: const EdgeInsets.symmetric(vertical: 15),
               height: 200,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -193,7 +195,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Color(0xFFEFFFFC),
               ),
               child: ListView(
-                padding: EdgeInsets.only(left: 25),
+                padding: const EdgeInsets.only(left: 25),
                 children: [
                   buildConversationRow(
                       name: '~Spicy',
@@ -260,51 +262,84 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         onPressed: () {},
       ),
-      drawer: const Drawer(
+      drawer: Drawer(
         width: 275,
         backgroundColor: Colors.black38,
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(20, 50, 20, 20),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Icon(
-                    Icons.arrow_back_ios_new,
-                    color: Colors.white,
-                    size: 20,
-                  ),
-                  SizedBox(
-                    width: 56,
-                  ),
-                  Text(
-                    'Settings',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 030),
-              Row(
-                children: [
-                  UserAvatar(filename: 'img3.jpeg'),
-                  SizedBox(width: 12),
-                  Text(
-                    "Darryl-win",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 35),
-              DrawerItem(title: "Account", icon: Icons.account_circle_sharp),
-              DrawerItem(title: "Chats", icon: Icons.chat_outlined),
-              DrawerItem(title: "Notifications", icon: Icons.notifications),
-              DrawerItem(title: "Data and storage", icon: Icons.storage),
-              DrawerItem(title: "Help", icon: Icons.help),
-
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.horizontal(
+            right: Radius.circular(40),
+          ),
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Color(0xF71F1E19),
+            borderRadius: BorderRadius.horizontal(
+              right: Radius.circular(40),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0x3D000000),
+                spreadRadius: 30,
+                blurRadius: 20,
+              )
             ],
+          ),
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(20, 50, 20, 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.arrow_back_ios_new,
+                          color: Colors.white,
+                          size: 20,
+                        ),
+                        SizedBox(
+                          width: 56,
+                        ),
+                        Text(
+                          'Settings',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 030),
+                    Row(
+                      children: [
+                        UserAvatar(filename: 'img3.jpeg'),
+                        SizedBox(width: 12),
+                        Text(
+                          "Darryl-win",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 35),
+                    DrawerItem(
+                        title: "Account", icon: Icons.account_circle_sharp),
+                    DrawerItem(title: "Chats", icon: Icons.chat_outlined),
+                    DrawerItem(
+                        title: "Notifications", icon: Icons.notifications),
+                    DrawerItem(title: "Data and storage", icon: Icons.storage),
+                    DrawerItem(title: "Help", icon: Icons.help),
+                    Divider(
+                      height: 35,
+                      color: Colors.white,
+                    ),
+                    DrawerItem(
+                        title: "Invite a friend", icon: Icons.people_alt_sharp),
+                  ],
+                ),
+                DrawerItem(title: "Log out", icon: Icons.logout),
+              ],
+            ),
           ),
         ),
       ),
@@ -324,18 +359,18 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               children: [
                 UserAvatar(filename: filename),
-                SizedBox(width: 15),
+                const SizedBox(width: 15),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       name,
-                      style: TextStyle(color: Colors.black),
+                      style: const TextStyle(color: Colors.black),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Text(
                       message,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                       ),
                     ),
@@ -344,29 +379,30 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(top: 5, right: 25),
+              padding: const EdgeInsets.only(top: 5, right: 25),
               child: Column(
                 children: [
                   Text(
                     timeReceived,
-                    style: TextStyle(fontSize: 10),
+                    style: const TextStyle(fontSize: 10),
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   if (msgCount>0)
                   CircleAvatar(
                     radius: 10,
-                    backgroundColor: Color(0xFF27c1A9),
-                    child: Text(
+                      backgroundColor: const Color(0xFF27c1A9),
+                      child: Text(
                       msgCount.toString(),
-                      style: TextStyle(fontSize: 10, color: Colors.white),
-                    ),
+                        style:
+                            const TextStyle(fontSize: 10, color: Colors.white),
+                      ),
                   ),
                 ],
               ),
             ),
           ],
         ),
-        Divider(
+        const Divider(
           indent: 70,
         ),
       ],
@@ -376,12 +412,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Padding buildContactAvatar(String name, String filename) {
     return Padding(
       padding: const EdgeInsets.only(
-        right: 020.0,
+        right: 20.0,
       ),
       child: Column(
         children: [
           UserAvatar(filename: filename),
-          SizedBox(height: 3),
+          const SizedBox(height: 3),
           Text(
             name,
             style: const TextStyle(
@@ -407,26 +443,29 @@ class DrawerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 25),
-      child: Row(
-        children: [
-          Icon(
-            icon,
-            color: Colors.white,
-            size: 20,
-          ),
-          SizedBox(
-            width: 56,
-          ),
-          Text(
-            title,
-            style: TextStyle(
+    return InkWell(
+      onTap: () {},
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 25),
+        child: Row(
+          children: [
+            Icon(
+              icon,
               color: Colors.white,
-              fontSize: 16,
+              size: 20,
             ),
-          ),
-        ],
+            SizedBox(
+              width: 56,
+            ),
+            Text(
+              title,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
